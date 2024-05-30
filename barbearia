@@ -1,0 +1,36 @@
+class Cliente:
+    def __init__(self, nome, horario):
+        self.nome = nome
+        self.horario = horario
+        
+        
+class AgendaBarbeiro:
+    def __init__(self):
+        self.agenda = {}
+        
+    def agendar_horario(self, cliente):
+        if cliente.horario in self.agenda:
+            print("Desculpe, este horário já está agendado. Por favor, escolha outro horário.")
+            
+        else:
+            self.agenda[cliente.horario] = cliente.nome
+            print(f"Horário agendado para {cliente.nome} às {cliente.horario}")
+            
+        def mostrar_agenda(self):
+            if not self.agenda:
+              print("A agenda está vazia.")
+            else:
+              print("Agenda do Barbeiro:")
+            for horario, cliente in self.agenda.items():
+              print(f"{horario}: {cliente}")
+              
+if __name__ == "__main__":
+    agenda_barbeiro = AgendaBarbeiro()
+
+    cliente1 = Cliente("João", "10:00")
+    cliente2 = Cliente("Maria", "11:00")
+
+    agenda_barbeiro.agendar_horario(cliente1)
+    agenda_barbeiro.agendar_horario(cliente2)
+
+    agenda_barbeiro.mostrar_agenda()
